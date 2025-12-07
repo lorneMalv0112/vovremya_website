@@ -176,7 +176,7 @@ export default function HomePage() {
               Контакты
             </Link>
             <a
-              href={phoneLink}
+              href="tel:+79173604464"
               className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
             >
               Позвонить
@@ -233,7 +233,7 @@ export default function HomePage() {
                 Контакты
               </Link>
               <a
-                href={phoneLink}
+                href="tel:+79173604464"
                 className="inline-flex items-center justify-center w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
               >
                 Позвонить
@@ -275,7 +275,7 @@ export default function HomePage() {
                 <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition" />
               </button>
               <a
-                href={phoneLink}
+                href="tel:+79173604464"
                 className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-sm sm:text-base hover:scale-105 active:scale-95"
               >
                 <Phone className="w-4 h-4 mr-2" />
@@ -429,7 +429,7 @@ export default function HomePage() {
                     <p className="font-light text-sm sm:text-base">{property.desc}</p>
                   </div>
                   <a
-                    href={phoneLink}
+                    href="tel:+79173604464"
                     onClick={(e) => {
                       e.stopPropagation()
                     }}
@@ -547,7 +547,7 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={phoneLink}
+              href="tel:+79173604464"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-base sm:text-lg hover:scale-105 active:scale-95"
             >
               <Phone className="w-5 h-5 mr-3 inline" />
