@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, MapPin, Clock, Users, Phone, Menu, X, ChevronDown, Star } from "lucide-react"
 import { PropertyModal } from "@/components/property-modal"
-import { AnimatedClock } from "@/components/animated-clock"
+import { Logo } from "@/components/logo"
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -149,99 +149,94 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[95%] max-w-5xl bg-white/10 dark:bg-white/5 backdrop-blur-xl z-50 border border-white/20 dark:border-white/10 rounded-full shadow-xl">
-        <div className="px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-lg flex items-center justify-center text-primary font-bold text-xs border border-white/30">
-              ВВ
-            </div>
-            <span className="font-light text-base sm:text-lg text-primary hidden sm:inline">ВОВРЕМЯ</span>
-          </div>
+      <nav className="fixed top-4 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 rounded-full px-4 sm:px-8 py-3 sm:py-4 flex items-center justify-between gap-8 max-w-2xl mx-auto">
+        <div className="flex items-center gap-2">
+          <Logo size="md" />
+        </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#services" className="text-sm font-light hover:text-primary transition-colors duration-300">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          <Link href="#services" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            Услуги
+          </Link>
+          <Link href="#properties" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            Объекты
+          </Link>
+          <Link href="#benefits" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            Преимущества
+          </Link>
+          <Link href="#reviews" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            Отзывы
+          </Link>
+          <Link href="#contact" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            Контакты
+          </Link>
+          <a
+            href="tel:+79173604464"
+            className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
+          >
+            Позвонить
+          </a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white/5 dark:bg-white/5 border-t border-white/10 rounded-b-3xl">
+          <div className="px-4 py-4 space-y-3 flex flex-col">
+            <Link
+              href="#services"
+              className="text-sm font-light hover:text-primary transition py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Услуги
             </Link>
-            <Link href="#properties" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            <Link
+              href="#properties"
+              className="text-sm font-light hover:text-primary transition py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Объекты
             </Link>
-            <Link href="#benefits" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            <Link
+              href="#benefits"
+              className="text-sm font-light hover:text-primary transition py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Преимущества
             </Link>
-            <Link href="#reviews" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            <Link
+              href="#reviews"
+              className="text-sm font-light hover:text-primary transition py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Отзывы
             </Link>
-            <Link href="#contact" className="text-sm font-light hover:text-primary transition-colors duration-300">
+            <Link
+              href="#contact"
+              className="text-sm font-light hover:text-primary transition py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Контакты
             </Link>
             <a
               href="tel:+79173604464"
-              className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
             >
               Позвонить
             </a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white/5 dark:bg-white/5 border-t border-white/10 rounded-b-3xl">
-            <div className="px-4 py-4 space-y-3 flex flex-col">
-              <Link
-                href="#services"
-                className="text-sm font-light hover:text-primary transition py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Услуги
-              </Link>
-              <Link
-                href="#properties"
-                className="text-sm font-light hover:text-primary transition py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Объекты
-              </Link>
-              <Link
-                href="#benefits"
-                className="text-sm font-light hover:text-primary transition py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Преимущества
-              </Link>
-              <Link
-                href="#reviews"
-                className="text-sm font-light hover:text-primary transition py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Отзывы
-              </Link>
-              <Link
-                href="#contact"
-                className="text-sm font-light hover:text-primary transition py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Контакты
-              </Link>
-              <a
-                href="tel:+79173604464"
-                className="inline-flex items-center justify-center w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-primary hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 transition-all duration-300 font-medium text-xs hover:scale-105 active:scale-95"
-              >
-                Позвонить
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
+      )}
 
       <section
         className="relative pt-32 sm:pt-40 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
@@ -253,16 +248,16 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-white/70 dark:bg-black/60 backdrop-blur-sm"></div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-          <div className="order-2 lg:order-1 space-y-6 sm:space-y-8 fade-in">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="space-y-6 sm:space-y-8 fade-in max-w-4xl">
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight text-pretty">
-                Вовремя или
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight text-pretty w-full">
+                Помогаем вовремя
                 <br />
-                <span className="text-primary font-semibold">будет поздно!</span>
+                <span className="text-primary font-semibold">продать, купить, сдать и снять в аренду</span>
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-pretty max-w-lg font-light">
-                Найди идеальную недвижимость быстро и легко. Мы помогаем на каждом этапе.
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-pretty w-full font-light">
+                Жилы и коммерческие помещения. <span className="text-primary font-semibold">Главное во Время!</span>
               </p>
             </div>
 
@@ -282,10 +277,6 @@ export default function HomePage() {
                 Позвонить
               </a>
             </div>
-          </div>
-
-          <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2">
-            <AnimatedClock />
           </div>
         </div>
       </section>
@@ -582,9 +573,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary/20 backdrop-blur-md rounded-lg flex items-center justify-center font-light text-primary text-sm border border-white/30">
-                ВВ
-              </div>
+              <Logo size="md" />
               <div>
                 <span className="font-light text-foreground">ВОВРЕМЯ</span>
                 <p className="text-xs text-muted-foreground font-light">Агенство недвижимости</p>
